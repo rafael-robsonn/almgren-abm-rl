@@ -1,0 +1,44 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/matching-engine",
+    "crates/market-agents",
+    "crates/stylized-facts",
+    "crates/abm-gym",
+    "crates/rl-ppo-burn",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[workspace.dependencies]
+matching-engine = { path = "crates/matching-engine" }
+market-agents = { path = "crates/market-agents" }
+stylized-facts = { path = "crates/stylized-facts" }
+abm-gym = { path = "crates/abm-gym" }
+rand_core = "0.10"
+rand_xoshiro = "0.8"
+rayon = "1.12"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+burn = { version = "0.22.1", default-features = false }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.test]
+opt-level = 3
+
+[profile.release]
+codegen-units = 1
+lto = "thin"

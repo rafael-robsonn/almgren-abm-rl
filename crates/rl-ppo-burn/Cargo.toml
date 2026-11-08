@@ -1,0 +1,24 @@
+[package]
+name = "rl-ppo-burn"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+default = ["flex"]
+ndarray = ["burn/ndarray"]
+flex = ["burn/flex"]
+wgpu = ["burn/wgpu"]
+
+[dependencies]
+abm-gym.workspace = true
+market-agents.workspace = true
+matching-engine.workspace = true
+burn = { workspace = true, features = ["std", "optim"] }
+serde.workspace = true
+serde_json.workspace = true
+
+[lints]
+workspace = true

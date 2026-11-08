@@ -1,0 +1,19 @@
+[package]
+name = "market-agents"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+matching-engine.workspace = true
+rand_core.workspace = true
+rand_xoshiro.workspace = true
+serde.workspace = true
+
+[dev-dependencies]
+rayon.workspace = true
+
+[lints]
+workspace = true
